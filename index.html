@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+	<meta charset="utf-8" />
+	<title>jquery.ui.slider.filter</title>
+	<!-- Stylesheet -->
+	<link href="demo/css/reset.css" rel="stylesheet" />
+	<link href="demo/css/jquery.ui.css" rel="stylesheet" />
+	<link href="demo/css/style.css" rel="stylesheet" />
+	<!--[if lt IE 9]><link href="css/ie.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+
+	<!-- Page -->
+	<div class="page">
+
+		<form action="">
+			<fieldset data-min="50" data-max="1000" data-step="50" class="demo-simple">
+				<p>
+					<input type="text" value="100" name="demo-1-min" />
+					<input type="text" value="900" name="demo-1-max" />
+				</p>
+				<div class="slider"></div>
+			</fieldset>
+		</form>
+
+		<form action="">
+			<fieldset data-min="10.5" data-max="85" data-step="0.5" class="demo-with-selectors">
+				<p>
+					<input type="text" value="10.5" name="demo-2-min" class="some-min-class" />
+					<input type="text" value="50" name="demo-2-max" class="some-max-class" />
+				</p>
+				<div class="some-slider-class"></div>
+			</fieldset>
+		</form>
+		
+	</div>
+	<!--/Page -->
+
+	<!-- JavaScript -->
+	<script src="demo/js/jquery.js"></script>
+	<script src="demo/js/jquery.ui.js"></script>
+	<script src="sources/jquery.ui.slider.filter.js"></script>
+	<script>
+		$(function(){
+
+			// Стандартные селекторы ( 'input:eq(0)', 'input:eq(1)', '.slider' ) и настройки:
+			$('.demo-simple').filterSlider();
+
+			// Нестандартные селекторы и события:
+			$('.demo-with-selectors').filterSlider({
+				firstField:	'.some-min-class',
+				secondField: '.some-max-class',
+				slider: '.some-slider-class',
+				onSlide: function(e,ui){
+					if (console) console.log(ui);
+				},
+				onChange: function(e,ui){
+					if (console) console.log(ui);
+				}
+			});
+
+		});
+	</script>
+	<!-- JavaScript -->
+
+</body>
+</html>
