@@ -4,12 +4,12 @@
 	
 		// settings
 		var settings = $.extend({
-			firstField:	'input:eq(0)',
-			secondField: 'input:eq(1)',
-			slider: '.slider',
-			clearQuery: true,
-			onSlide: $.noop,
-			onChange: $.noop
+			firstField: 'input:eq(0)', // first field selector
+			secondField: 'input:eq(1)', // second field selector
+			slider: '.slider', // slider selector
+			clearQuery: true, // dont't submit fields if they values equal slider limits?
+			onSlide: $.noop, // slide callback
+			onChange: $.noop // change callback
 		}, options);
 
 		// install filterSlider for each items
@@ -42,7 +42,7 @@
 			// step
 			var step = parseFloat($block.attr('data-step')) || 1;
 	
-			// Init jQuery UI Slider
+			// init jquery.ui.slider
 			$slider.slider({
 			    min: limits.min,
 			    max: limits.max,
@@ -50,7 +50,7 @@
 			    range: true,
 			    animate: true,
 			    values: [defaults.min, defaults.max],
-			    slide:	function(e,ui){
+			    slide: function(e,ui){
 			    	$inputs.min.val(ui.values[0]);
 			    	$inputs.max.val(ui.values[1]);
 			    	settings.onSlide(e,ui);
@@ -83,21 +83,21 @@
 				$slider.slider('values', 1, value);
 			});
 
-			// don't submit unnecessary data
+			// dont't submit fields if they values equal slider limits
 			if (settings.clearQuery) {
 
 				// save "name" attr values
 				$inputs.min.attr('data-name', $inputs.min.attr('name'));
 				$inputs.max.attr('data-name', $inputs.max.attr('name'));
 
-				// fn: dont't submit fields if they values equal slider limits
+				// fn: remove inputs "name" attr values
 				var removeFromQuery = function(){
 					var minInputValue = new Number($inputs.min.val());
 					var maxInputValue = new Number($inputs.max.val());
 					if (limits.min.toString()==minInputValue.toString() && limits.max.toString()==maxInputValue.toString()) $inputs.min.add($inputs.max).removeAttr('name');
 				};
 
-				// fn: return "name" attr values
+				// fn: return inputs "name" attr values
 				var returnInQuery = function(){
 					$inputs.min.attr('name', $inputs.min.attr('data-name'));
 					$inputs.max.attr('name', $inputs.max.attr('data-name'));
