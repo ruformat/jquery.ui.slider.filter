@@ -83,7 +83,7 @@
 				$slider.slider('values', 1, value);
 			});
 
-			// don't submit fields if they values equal slider limits
+			// don't submit fields if their values equal slider limits
 			if (settings.clearQuery) {
 
 				// save "name" attr values
