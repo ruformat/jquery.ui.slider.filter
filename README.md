@@ -11,7 +11,7 @@ HTML:
   <input type="text" value="150" />
   <input type="text" value="900" />
   <div class="slider"></div>
-</fieldset>
+</div>
 ...
 <script src="jquery.js"></script>
 <script src="jquery.ui.js"></script>
