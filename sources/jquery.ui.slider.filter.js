@@ -35,8 +35,8 @@
 
 			// defaults
 			var defaults = {
-				min: parseFloat($inputs.min.val()) || 0,
-				max: parseFloat($inputs.max.val()) || 100
+				min: parseFloat($inputs.min.val()) || limits.min,
+				max: parseFloat($inputs.max.val()) || limits.max
 			};
 
 			// step
