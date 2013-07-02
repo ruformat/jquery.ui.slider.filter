@@ -1,8 +1,4 @@
-/*
- * Copyright (c) 2013 Shilov Vlad [Omgovich] (http://omgovich.ru/)
- * 
- */
- (function($){
+(function($){
 
 	$.fn.filterSlider = function(options){
 	
@@ -23,7 +19,7 @@
 			var $block = $(this);
 	
 			// slider block
-			var $slider = $block.find(settings.slider);
+			var $slider = $block.find(settings.slider).first();
 
 			// inputs
 			var $inputs = {
@@ -53,7 +49,7 @@
 			    step: step,
 			    range: true,
 			    animate: true,
-			    values: [defaults.min,defaults.max],
+			    values: [defaults.min, defaults.max],
 			    slide:	function(e,ui){
 			    	$inputs.min.val(ui.values[0]);
 			    	$inputs.max.val(ui.values[1]);
@@ -94,7 +90,7 @@
 				$inputs.min.attr('data-name', $inputs.min.attr('name'));
 				$inputs.max.attr('data-name', $inputs.max.attr('name'));
 
-				// fn: don't submit fields values
+				// fn: dont't submit fields if they values equal slider limits
 				var removeFromQuery = function(){
 					var minInputValue = new Number($inputs.min.val());
 					var maxInputValue = new Number($inputs.max.val());
@@ -107,7 +103,7 @@
 					$inputs.max.attr('name', $inputs.max.attr('data-name'));
 				};
 
-				// queue api
+				// query api
 				$block.data('filterSlider', {
 					removeFromQuery: removeFromQuery,
 					returnInQuery: returnInQuery

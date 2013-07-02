@@ -10,11 +10,11 @@ body {
 
 /*** --- Links --- ***/
 a {
-	color: #00347b;
+	color: #009ae1;
 	text-decoration:underline;
 }
 a:hover {
-	color: #375dbe;
+	color: #D00;
 }
 
 
@@ -25,7 +25,6 @@ a:hover {
 	margin: 0 auto;
 }
 
-
 /*** --- Form --- ***/
 form {
 	padding: 50px;
@@ -33,10 +32,7 @@ form {
 	background: #f9f9f9;
 	box-shadow: inset 0 2px 5px #e5e5e5;
 	border-radius: 15px;
-	margin-bottom: 60px;
-}
-form:last-child {
-	margin-bottom: 0;
+	margin-bottom: 50px;
 }
 form fieldset p {
 	overflow: hidden;
@@ -60,4 +56,11 @@ form fieldset input:focus {
 }
 form fieldset input:first-child {
 	margin-right: 10px;
+}
+
+
+/*** --- Promo --- ***/
+.promo {
+	font-size: 18px;
+	text-align: center;
 }
