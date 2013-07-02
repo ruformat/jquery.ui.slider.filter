@@ -24,7 +24,7 @@
 			// inputs
 			var $inputs = {
 				min: $block.find(settings.firstField).first(),
-			    max: $block.find(settings.secondField).first()
+				max: $block.find(settings.secondField).first()
 			};
 
 			// limits
@@ -44,20 +44,20 @@
 	
 			// init jquery.ui.slider
 			$slider.slider({
-			    min: limits.min,
-			    max: limits.max,
-			    step: step,
-			    range: true,
-			    animate: true,
-			    values: [defaults.min, defaults.max],
-			    slide: function(e,ui){
-			    	$inputs.min.val(ui.values[0]);
-			    	$inputs.max.val(ui.values[1]);
-			    	settings.onSlide(e,ui);
-			    },
-			    change: function(e,ui){
-			    	settings.onChange(e,ui);
-			    }
+				min: limits.min,
+				max: limits.max,
+				step: step,
+				range: true,
+				animate: true,
+				values: [defaults.min, defaults.max],
+				slide: function(e,ui){
+					$inputs.min.val(ui.values[0]);
+					$inputs.max.val(ui.values[1]);
+					settings.onSlide(e,ui);
+				},
+				change: function(e,ui){
+					settings.onChange(e,ui);
+				}
 			});
 
 			// event: keypress in inputs
@@ -83,7 +83,7 @@
 				$slider.slider('values', 1, value);
 			});
 
-			// dont't submit fields if they values equal slider limits
+			// don't submit fields if they values equal slider limits
 			if (settings.clearQuery) {
 
 				// save "name" attr values

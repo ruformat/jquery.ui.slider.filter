@@ -30,6 +30,6 @@ JavaScript:
 * `firstField` - First field selector. Default: 'input:eq(0)'
 * `secondField` - Second field selector. Default: 'input:eq(1)'
 * `slider` - Slider selector. Default: '.slider'
-* `clearQuery` - Dont't submit fields if they values equal slider limits? Default: true
+* `clearQuery` - Don't submit fields if they values equal slider limits? Default: true
 * `onSlide` - on slide callback
 * `onChange` - on change callback
